@@ -6,7 +6,7 @@
 }
 
 a {
-  color: #fff;
+  color: #4F4F4F;
   text-decoration: none;
 }
 
@@ -20,22 +20,35 @@ body {
   text-transform: uppercase;
 }
 
+/* body:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: #4F4F4F;
+  z-index: 1;
+  margin-left: 8vw;
+} */
+
 h2 {
-  font-size: clamp(1rem, 5vw, 5rem);
-  font-weight: 400;
-  text-align: center;
-  letter-spacing: 0.5em;
+  font-family: "Raleway", sans-serif;
+  font-size: 200px;
+  font-weight: 600;
+  letter-spacing: 20%;
   margin-right: -0.5em;
-  color: #cccccc;
+  text-transform: capitalize;
+  color: #4F4F4F;
   width: 90vw;
   max-width: 1200px;
 }
 
-header {
+footer {
   position: fixed;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 5%;
   width: 100%;
   z-index: 3;
@@ -43,6 +56,7 @@ header {
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(0.66rem, 2vw, 1rem);
   letter-spacing: 0.5em;
+  bottom:0
 }
 
 section {
@@ -69,6 +83,19 @@ section .bg {
   background-size: cover;
   background-position: center;
 }
+
+section .bg:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: #4F4F4F;
+  z-index: 1;
+  margin-left: 12vw;
+}
+
 section .bg h2 {
   z-index: 2;
 }
@@ -76,27 +103,15 @@ section .bg .clip-text {
   overflow: hidden;
 }
 
-.first .bg {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(https://images.unsplash.com/photo-1617478755490-e21232a5eeaf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU1NjM5NA&ixlib=rb-1.2.1&q=75&w=1920);
-}
-
-.second .bg {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url("https://images.unsplash.com/photo-1617128734662-66da6c1d3505?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzc3NTM3MA&ixlib=rb-1.2.1&q=75&w=1920");
-}
-
-.third .bg {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(https://images.unsplash.com/photo-1617438817509-70e91ad264a5?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU2MDk4Mg&ixlib=rb-1.2.1&q=75&w=1920);
-}
-
-.fourth .bg {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(https://images.unsplash.com/photo-1617412327653-c29093585207?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU2MDgzMQ&ixlib=rb-1.2.1&q=75&w=1920);
-}
-
-.fifth .bg {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url("https://images.unsplash.com/photo-1617141636403-f511e2d5dc17?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxODAzMjc4Mw&ixlib=rb-1.2.1&q=75w=1920");
-  background-position: 50% 45%;
+section .bg {
+  background-color: #fff;
 }
 
 h2 * {
   will-change: transform;
+}
+
+h2.section-heading {
+  margin-left: -5vw;
+  background-color: #fff;
 }
