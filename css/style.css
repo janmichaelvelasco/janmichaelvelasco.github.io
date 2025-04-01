@@ -34,7 +34,6 @@ body {
 } */
 
 h2 {
-  font-family: "Raleway", sans-serif;
   font-size: 200px;
   font-weight: 600;
   letter-spacing: 20%;
@@ -42,6 +41,10 @@ h2 {
   text-transform: capitalize;
   width: 90vw;
   max-width: 1200px;
+}
+
+h2, h3{
+  font-family: "Raleway", sans-serif;
 }
 
 footer, nav {
@@ -117,8 +120,8 @@ h2 * {
 }
 
 h2.section-heading {
-  margin-left: -5vw;
   background-color: #fff;
+  position: relative;
 }
 
 nav a.disabled{
@@ -128,4 +131,40 @@ nav a.disabled{
 .nav {
   background: #fff;
   padding: 20px;
+}
+
+.container{
+  width: 90vw;
+  max-width: 1200px;
+  height: 90vh;
+  max-height: 800px;
+}
+
+section.first .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section.first h2{
+  font-size: 130px;
+  margin: 0 auto;
+}
+
+section h3{
+  background-color: #fff;
+  position: relative;
+  z-index: 20;
+}
+
+section.first h3{
+  background-color: #fff;
+  position: relative;
+  z-index: 20;
+  padding: 5px 0;
+  font-size: 1.17em;
+}
+
+section h3{
+  font-size: 48px;
 }
