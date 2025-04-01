@@ -18,6 +18,7 @@ body {
   background: black;
   font-family: "Cormorant Garamond", serif;
   text-transform: uppercase;
+  color: #4F4F4F;
 }
 
 /* body:after{
@@ -39,12 +40,11 @@ h2 {
   letter-spacing: 20%;
   margin-right: -0.5em;
   text-transform: capitalize;
-  color: #4F4F4F;
   width: 90vw;
   max-width: 1200px;
 }
 
-footer {
+footer, nav {
   position: fixed;
   display: flex;
   align-items: center;
@@ -57,6 +57,11 @@ footer {
   font-size: clamp(0.66rem, 2vw, 1rem);
   letter-spacing: 0.5em;
   bottom:0
+}
+
+nav{
+  justify-content: flex-start;
+  z-index: 10;
 }
 
 section {
@@ -114,4 +119,13 @@ h2 * {
 h2.section-heading {
   margin-left: -5vw;
   background-color: #fff;
+}
+
+nav a.disabled{
+  opacity: 0.5;
+  pointer-events: none;
+}
+.nav {
+  background: #fff;
+  padding: 20px;
 }

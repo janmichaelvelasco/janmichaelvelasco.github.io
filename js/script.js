@@ -13,41 +13,52 @@ let sections = document.querySelectorAll("section"),
 gsap.set(outerWrappers, { yPercent: 100 });
 gsap.set(innerWrappers, { yPercent: -100 });
 
+function updateNavButtons() {
+  const prevBtn = document.querySelector(".nav-link.prev");
+  const nextBtn = document.querySelector(".nav-link.next");
+
+  // Disable prev button on the first slide
+  if (currentIndex === 0) {
+    prevBtn.classList.add("disabled");
+  } else {
+    prevBtn.classList.remove("disabled");
+  }
+
+  // Disable next button on the last slide
+  if (currentIndex === sections.length - 1) {
+    nextBtn.classList.add("disabled");
+  } else {
+    nextBtn.classList.remove("disabled");
+  }
+}
+
 function gotoSection(index, direction) {
-  index = wrap(index); // make sure it's valid
+  if (index < 0 || index >= sections.length) return; // Prevent out-of-bounds navigation
+
   animating = true;
   let fromTop = direction === -1,
       dFactor = fromTop ? -1 : 1,
       tl = gsap.timeline({
         defaults: { duration: 1.25, ease: "power1.inOut" },
-        onComplete: () => animating = false
+        onComplete: () => {
+          animating = false;
+          updateNavButtons(); // Update buttons after animation
+        }
       });
+
   if (currentIndex >= 0) {
-    // The first time this function runs, current is -1
     gsap.set(sections[currentIndex], { zIndex: 0 });
     tl.to(images[currentIndex], { yPercent: -15 * dFactor })
       .set(sections[currentIndex], { autoAlpha: 0 });
   }
+
   gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
   tl.fromTo([outerWrappers[index], innerWrappers[index]], { 
       yPercent: i => i ? -100 * dFactor : 100 * dFactor
     }, { 
       yPercent: 0 
     }, 0)
-    .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
-    // .fromTo(splitHeadings[index].chars, { 
-    //     autoAlpha: 0, 
-    //     yPercent: 150 * dFactor
-    // }, {
-    //     autoAlpha: 1,
-    //     yPercent: 0,
-    //     duration: 1,
-    //     ease: "power2",
-    //     stagger: {
-    //       each: 0.02,
-    //       from: "random"
-    //     }
-    //   }, 0.2);
+    .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0);
 
   currentIndex = index;
 }
@@ -55,13 +66,43 @@ function gotoSection(index, direction) {
 Observer.create({
   type: "wheel,touch,pointer",
   wheelSpeed: -1,
-  onDown: () => !animating && gotoSection(currentIndex - 1, -1),
-  onUp: () => !animating && gotoSection(currentIndex + 1, 1),
+  onDown: () => {
+    if (!animating && currentIndex > 0) {
+      gotoSection(currentIndex - 1, -1);
+    }
+  },
+  onUp: () => {
+    if (!animating && currentIndex < sections.length - 1) {
+      gotoSection(currentIndex + 1, 1);
+    }
+  },
   tolerance: 10,
   preventDefault: true
 });
+
 
 gotoSection(0, 1);
 
 // original: https://codepen.io/BrianCross/pen/PoWapLP
 // horizontal version: https://codepen.io/GreenSock/pen/xxWdeMK
+
+// Attach event listeners to navigation buttons
+document.addEventListener("DOMContentLoaded", () => {
+  const prevBtn = document.querySelector(".nav-link.prev");
+  const nextBtn = document.querySelector(".nav-link.next");
+
+  prevBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!animating && currentIndex > 0) {
+      gotoSection(currentIndex - 1, -1);
+    }
+  });
+
+  nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!animating && currentIndex < sections.length - 1) {
+      gotoSection(currentIndex + 1, 1);
+    }
+  });
+  updateNavButtons(); // Set initial state
+});
