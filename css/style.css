@@ -13,8 +13,9 @@ a {
 @media (min-width: 768px) {
   body{
     background: black;
+    height: 100vh;
   }
-
+  
   section {
     height: 100%;
     width: 100%;
@@ -33,6 +34,17 @@ a {
     background-position: center;
     position: absolute;
   }
+  section .bg:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #4F4F4F;
+    z-index: 1;
+    margin-left: 12vw;
+  }
   section .outer,
   section .inner {
     width: 100%;
@@ -45,11 +57,32 @@ a {
     height: 90vh;
     max-height: 800px;
   }
+  section .bg {
+    background-color: #fff;
+  }
+  section .container > div{
+    background-color: #fff;
+  }
 }
 
 @media (max-width: 768px) {
+  body:after{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #4F4F4F;
+    z-index: 1;
+    margin-left: 12vw;
+  }
   .container{
     padding: 0 20px;
+  }
+  section{
+    z-index: 2;
+    position: relative;
   }
 }
 
@@ -58,24 +91,9 @@ a {
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  color: white;
   font-family: "Raleway", sans-serif;
   color: #4F4F4F;
 }
-
-body:after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background: #4F4F4F;
-  z-index: 1;
-  margin-left: 12vw;
-}
-
 
 /* body:after{
   content: "";
@@ -123,27 +141,11 @@ nav{
   z-index: 10;
 }
 
-section .bg:after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background: #4F4F4F;
-  z-index: 1;
-  margin-left: 12vw;
-}
-
 section .bg h2 {
   z-index: 2;
 }
 section .bg .clip-text {
   overflow: hidden;
-}
-
-section .bg {
-  background-color: #fff;
 }
 
 h2 * {
@@ -194,7 +196,6 @@ section h3{
 }
 
 section .container > div{
-  background-color: #fff;
   padding: 20px 0;
   z-index: 20;
   position: relative;
