@@ -129,3 +129,5 @@ function checkViewportForGsap() {
 
 window.addEventListener("resize", checkViewportForGsap);
 document.addEventListener("DOMContentLoaded", checkViewportForGsap);
+
+

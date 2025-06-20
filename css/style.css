@@ -84,6 +84,9 @@ a {
     z-index: 2;
     position: relative;
   }
+  section .container > div:not(.timeline) {
+    background-color: #fff;
+  }
 }
 
 
@@ -94,18 +97,6 @@ body {
   font-family: "Raleway", sans-serif;
   color: #4F4F4F;
 }
-
-/* body:after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background: #4F4F4F;
-  z-index: 1;
-  margin-left: 8vw;
-} */
 
 h2 {
   font-size: 200px;
@@ -255,4 +246,42 @@ section .container > div{
   .timeline > div {
     grid-column: 1 !important;
   }
+}
+
+
+.skills-accordion .accordion-toggle {
+  background-color: #f1f1f1;
+  color: #333;
+  cursor: pointer;
+  padding: 12px 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.skills-accordion .accordion-toggle:hover {
+  background-color: #e2e2e2;
+}
+
+
+.skills-accordion .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+}
+
+.skills-accordion .skill-item.active .accordion-content {
+  max-height: 300px; /* Adjust based on expected content height */
+  padding: 12px 16px;
+}
+
+.skills-accordion .skill-item.active .accordion-content {
+  display: block;
 }

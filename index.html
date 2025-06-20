@@ -41,8 +41,24 @@
                 <div class="inner">
                     <div class="bg">
                         <div class="container">
-                            <!-- <h3>About Me</h3> -->
-                            <h3>Second slide</h3>
+                            <h3>About Me</h3>
+                            <div class="about-me-content">
+                                <p>Hi! I'm <strong>Jan Michael Velasco</strong>, a passionate and skilled WordPress developer with over 15 years of experience building responsive, user-friendly websites. Throughout my career, I've specialized in custom WordPress theme and plugin development, delivering tailored solutions that combine performance, functionality, and design.</p>
+
+                                <p>My journey began in 2008 and has taken me through various companies and industries, including relocation services, construction, and digital marketing. I've had the opportunity to collaborate with designers, marketers, and developers to build everything from eCommerce platforms to lead-generation tools.</p>
+
+                                <p>Whether I'm optimizing SEO, solving complex bugs, or enhancing user experience, I bring a hands-on, detail-oriented approach to every project. I'm also comfortable with version control tools like Git, and I stay up to date with the latest web technologies to ensure every build is modern, mobile-optimized, and aligned with UX best practices.</p>
+
+                                <p><strong>Some notable brands I've contributed to include:</strong></p>
+                                <ul>
+                                    <li><a href="https://www.santaferelo.com/en/" target="_blank" rel="noopener noreferrer">Santa Fe Relocation</a></li>
+                                    <li><a href="https://polyfabrics.com.au/" target="_blank" rel="noopener noreferrer">Polyfabrics</a></li>
+                                    <li><a href="https://fortressfencing.com.au/" target="_blank" rel="noopener noreferrer">Fortress Fencing</a></li>
+                                    <li><a href="https://www.signfix.com.au/signfix-calc/" target="_blank" rel="noopener noreferrer">Signfix Calculator</a></li>
+                                </ul>
+
+                                <p>When I'm not coding, you'll likely find me exploring new tech, refining my CSS animations, or assisting businesses in leveling up their digital presence.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,6 +83,44 @@
                         <div class="container">
                             <!-- <h3>Skills & Technologies</h3> -->
                             <h3>Fourth slide</h3>
+                            <div class="skills-accordion">
+
+                                <div class="skill-item">
+                                    <button class="accordion-toggle">HTML & CSS</button>
+                                    <div class="accordion-content">
+                                    <p>Strong understanding of semantic HTML5, modern CSS (Flexbox, Grid), responsive design principles, and accessibility best practices.</p>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item">
+                                    <button class="accordion-toggle">JavaScript</button>
+                                    <div class="accordion-content">
+                                    <p>Proficient in vanilla JavaScript and ES6+, including DOM manipulation, event handling, and API interactions.</p>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item">
+                                    <button class="accordion-toggle">React</button>
+                                    <div class="accordion-content">
+                                    <p>Experienced in building reusable components, using hooks, and managing state with React and related libraries.</p>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item">
+                                    <button class="accordion-toggle">WordPress</button>
+                                    <div class="accordion-content">
+                                    <p>Comfortable with theme customization, page builders, custom post types, and template hierarchy in WordPress.</p>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item">
+                                    <button class="accordion-toggle">Git & Version Control</button>
+                                    <div class="accordion-content">
+                                    <p>Daily usage of Git for source control, with knowledge of branching strategies, pull requests, and GitHub workflows.</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,6 +166,24 @@
         <footer>
             <div><a href="https://codepen.io/BrianCross/pen/PoWapLP">Original By Brian</a></div>
         </footer>
+        <script>
+            document.querySelectorAll('.accordion-toggle').forEach(button => {
+                button.addEventListener('click', () => {
+                const currentItem = button.parentElement;
+                const accordion = currentItem.parentElement;
+
+                // Close all items
+                accordion.querySelectorAll('.skill-item').forEach(item => {
+                    if (item !== currentItem) {
+                    item.classList.remove('active');
+                    }
+                });
+
+                // Toggle the clicked item
+                currentItem.classList.toggle('active');
+                });
+            });
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
